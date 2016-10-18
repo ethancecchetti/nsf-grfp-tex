@@ -27,7 +27,8 @@
 %
 % Noes and Usage:
 %  The title is compacted and placed entirely in one line, so use \maketitle.
-%  Note that if the title is too long, things will overwrite each other.
+%  Note that if the title is too long, things might not look great (it doesn't
+%  vertically center).
 %
 %  All section headers will be normal size and everything except \section will
 %  be inlined with the beginning of the paragraph.
@@ -60,6 +61,8 @@
 \RequirePackage{courier}
 \RequirePackage{sectsty}
 \RequirePackage{natbib}
+\RequirePackage{pbox}
+\RequirePackage{calc}
 
 % New configurable length values
 \newlength{\titlegap}
@@ -90,9 +93,14 @@
 \newcommand{\NextYear}{\advance\year by 1 \the\year\advance\year by -1}
 
 \renewcommand{\maketitle}{%
+  \newcommand\@DateText{NSF GRFP \@NextYear}%
+  \newlength{\@titlewidth}%
+  \setlength{\@titlewidth}{\textwidth - \maxof{\widthof{\@author}}{\widthof{\@DateText}}*2}%
+  \addtolength{\@titlewidth}{-2em}%
+  %
   \begin{center}%
-  {\@author}\hfill{NSF GRFP \NextYear}\\[-\baselineskip]%
-  {\bfseries\@title}%
+  {\@author}\hfill{\@DateText}\\[-\baselineskip]%
+  \pbox[t][][t]{\@titlewidth}{\centering\bfseries\@title}%
   \vspace{\titlegap}%
   \end{center}%
 }
