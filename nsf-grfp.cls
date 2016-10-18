@@ -48,8 +48,8 @@
 %
 % =============================================================================
 
-\def\fileversion{1.0}
-\def\filedate{2016/10/17}
+\def\fileversion{1.1}
+\def\filedate{2016/10/18}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{nsf-grfp}[\filedate\space Version \fileversion\space by Ethan Cecchetti]
@@ -58,7 +58,7 @@
 
 \RequirePackage{mathptmx}
 \RequirePackage[scaled=.90]{helvet}
-\RequirePackage{courier}
+\RequirePackage{inconsolata}
 \RequirePackage{sectsty}
 \RequirePackage{natbib}
 \RequirePackage{pbox}
