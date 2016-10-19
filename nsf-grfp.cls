@@ -49,7 +49,7 @@
 % =============================================================================
 
 \def\fileversion{1.1}
-\def\filedate{2016/10/18}
+\def\filedate{2016/10/19}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{nsf-grfp}[\filedate\space Version \fileversion\space by Ethan Cecchetti]
@@ -60,7 +60,7 @@
 \RequirePackage[scaled=.90]{helvet}
 \RequirePackage{inconsolata}
 \RequirePackage{sectsty}
-\RequirePackage{natbib}
+\RequirePackage[numbers,sort&compress]{natbib}
 \RequirePackage{calc}
 
 % New configurable length values
