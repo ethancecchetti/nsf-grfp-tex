@@ -61,7 +61,6 @@
 \RequirePackage{inconsolata}
 \RequirePackage{sectsty}
 \RequirePackage{natbib}
-\RequirePackage{pbox}
 \RequirePackage{calc}
 
 % New configurable length values
@@ -74,7 +73,7 @@
 
 % Default values for configurable lengths
 \setlength{\titlegap}{0em}
-\setlength{\secpargap}{1em \@plus 0.2em \@minus 0.2em}
+\setlength{\secpargap}{0.8em \@plus 0.2em \@minus 0.2em}
 \setlength{\secskipabove}{1em \@plus 0.5ex \@minus 0.5ex}
 \setlength{\secskipbelow}{0.25em \@plus 0.5ex \@minus 0.5ex}
 \setlength{\subsecskipabove}{1em \@plus 0.5ex \@minus 0.2ex}
@@ -90,7 +89,7 @@
 \setlength\textheight{\paperheight}
 \addtolength\textheight{-2in}
 
-\newcommand{\NextYear}{\advance\year by 1 \the\year\advance\year by -1}
+\newcommand{\@NextYear}{\advance\year by 1 \the\year\advance\year by -1}
 
 \renewcommand{\maketitle}{%
   \newcommand\@DateText{NSF GRFP \@NextYear}%
@@ -100,12 +99,11 @@
   %
   \begin{center}%
   {\@author}\hfill{\@DateText}\\[-\baselineskip]%
-  \pbox[t][][t]{\@titlewidth}{\centering\bfseries\@title}%
+  \parbox[t]{\@titlewidth}{\centering\bfseries\@title}%
   \vspace{\titlegap}%
   \end{center}%
 }
 
-\sectionfont{\fontsize{12}{12}\selectfont}
 \setlength{\bibsep}{0.5ex plus 0.3ex}
 
 % Change how sections are rendered so that they are inline.
