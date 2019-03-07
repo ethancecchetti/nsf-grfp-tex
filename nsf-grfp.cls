@@ -1,6 +1,6 @@
 % MIT License
 %
-% Copyright (c) 2016 Ethan Cecchetti
+% Copyright (c) 2018 Ethan Cecchetti
 %
 % Permission is hereby granted, free of charge, to any person obtaining a copy
 % of this software and associated documentation files (the "Software"), to deal
@@ -48,13 +48,13 @@
 %
 % =============================================================================
 
-\def\fileversion{1.1}
-\def\filedate{2016/10/19}
+\def\fileversion{1.2}
+\def\filedate{2018/11/12}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{nsf-grfp}[\filedate\space Version \fileversion\space by Ethan Cecchetti]
 
-\LoadClass[letterpaper,12pt,onecolumn,oneside,final]{article}
+\LoadClass[12pt,onecolumn,oneside,final]{article}
 
 \RequirePackage{mathptmx}
 \RequirePackage[scaled=.90]{helvet}
@@ -62,6 +62,8 @@
 \RequirePackage{sectsty}
 \RequirePackage[numbers,sort&compress]{natbib}
 \RequirePackage{calc}
+\RequirePackage{microtype}
+\RequirePackage[letterpaper,margin=1in]{geometry}
 
 % New configurable length values
 \newlength{\titlegap}
@@ -79,19 +81,9 @@
 \setlength{\subsecskipabove}{1em \@plus 0.5ex \@minus 0.2ex}
 \setlength{\subsubsecskipabove}{0.5em \@plus 0.5ex \@minus 0.2ex}
 
-% Set margins to 1 inch on every side
-\setlength\topmargin{0pt}
-\addtolength\topmargin{-\headheight}
-\addtolength\topmargin{-\headsep}
-\setlength\oddsidemargin{0pt}
-\setlength\textwidth{\paperwidth}
-\addtolength\textwidth{-2in}
-\setlength\textheight{\paperheight}
-\addtolength\textheight{-2in}
+\def\@NextYear{\advance\year by 1 \the\year\advance\year by -1}
 
-\newcommand{\@NextYear}{\advance\year by 1 \the\year\advance\year by -1}
-
-\renewcommand{\maketitle}{%
+\def\maketitle{%
   \newcommand\@DateText{NSF GRFP \@NextYear}%
   \newlength{\@titlewidth}%
   \setlength{\@titlewidth}{\textwidth - \maxof{\widthof{\@author}}{\widthof{\@DateText}}*2}%
@@ -107,25 +99,25 @@
 \setlength{\bibsep}{0.5ex plus 0.3ex}
 
 % Change how sections are rendered so that they are inline.
-\renewcommand{\section}{%
+\def\section{%
   \@startsection{section}{1}{\z@}%
                 {-\secskipabove}{\secskipbelow}%
                 {\normalfont\normalsize\bfseries}%
 }
-\renewcommand{\subsection}{%
+\def\subsection{%
   \@startsection{subsection}{1}{\z@}%
                 {-\subsecskipabove}{-\secpargap}%
                 {\normalfont\normalsize\bfseries}%
 }
-\renewcommand{\subsubsection}{%
+\def\subsubsection{%
   \@startsection{subsubsection}{1}{\z@}%
                 {-\subsubsecskipabove}{-\secpargap}%
                 {\normalfont\normalsize\bfseries}%
 }
-\renewcommand{\paragraph}{%
+\def\paragraph{%
   \@startsection{paragraph}{1}{\z@}%
                 {0em}{-\secpargap}%
                 {\normalfont\normalsize\bfseries}*%
 }
 
-\renewcommand{\bibfont}{\footnotesize}
+\def\bibfont{\fontsize{10}{12}\selectfont}
