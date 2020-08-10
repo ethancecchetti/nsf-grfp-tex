@@ -48,13 +48,13 @@
 %
 % =============================================================================
 
-\def\fileversion{1.2}
-\def\filedate{2018/11/12}
+\def\fileversion{1.3}
+\def\filedate{2020/08/10}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{nsf-grfp}[\filedate\space Version \fileversion\space by Ethan Cecchetti]
 
-\LoadClass[12pt,onecolumn,oneside,final]{article}
+\LoadClass[11pt,onecolumn,oneside,final]{article}
 
 \RequirePackage{mathptmx}
 \RequirePackage[scaled=.90]{helvet}
@@ -81,10 +81,12 @@
 \setlength{\subsecskipabove}{1em \@plus 0.5ex \@minus 0.2ex}
 \setlength{\subsubsecskipabove}{0.5em \@plus 0.5ex \@minus 0.2ex}
 
-\def\@NextYear{\advance\year by 1 \the\year\advance\year by -1}
+\advance\year by 1
+\edef\@TheNextYear{\the\year}
+\advance\year by -1
 
 \def\maketitle{%
-  \newcommand\@DateText{NSF GRFP \@NextYear}%
+  \newcommand\@DateText{NSF GRFP \@TheNextYear}%
   \newlength{\@titlewidth}%
   \setlength{\@titlewidth}{\textwidth - \maxof{\widthof{\@author}}{\widthof{\@DateText}}*2}%
   \addtolength{\@titlewidth}{-2em}%
