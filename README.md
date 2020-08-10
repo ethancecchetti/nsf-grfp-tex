@@ -1,6 +1,10 @@
 # nsf-grfp-tex
 A formatting class and skeleton for NSF GRFP essays.
 
+**Warning:** Please check that this formatting matches the current requirements
+for the NSF GRFP. They may have changed since the last time this class was
+updated. (If they have, feel free to file an issue or pull request!)
+
 As of Fall 2020, The NSF GRFP guidelines require 11pt font, one inch margins.
 The .tex class and skeleton will provide that automatically and compress
 several other space-consuming areas like the title and bibliography.
