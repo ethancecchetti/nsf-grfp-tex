@@ -65,6 +65,8 @@
 \RequirePackage{microtype}
 \RequirePackage[letterpaper,margin=1in]{geometry}
 
+\frenchspacing
+
 % New configurable length values
 \newlength{\titlegap}
 \newlength{\secpargap}
